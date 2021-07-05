@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Student Form</title>
+    <style>
+        div.form-control {
+            padding-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div><a href="/">Home</a> | <a href="/student/list">student</a></div>
+    <h1>New Student Form</h1>
+    <form action="/student/new" method="post" th:object="${student}">
+        <div class="form-control">
+            <div><label for="title">Title</label></div>
+            <div><input id="title" name="title" th:value="${student.title}" type="text"></div>
+        </div>
+        <div class="form-control">
+            <div><label for="studentNumber">Student Number</label></div>
+            <div><input id="studentNumber" name="studentNumber" th:value="${student.studentNumber}" type="text"></div>
+            <div>
+                <span style="color: #ff0000;" th:if="${#fields.hasErrors('studentNumber')}" th:errors="*{studentNumber}"></span>
+            </div>
+        </div>
+        <div class="form-control">
+            <div><label for="firstName">First Name</label></div>
+            <div><input id="firstName" name="firstName" th:value="${student.firstName}" type="text"></div>
+            <div>
+                <span style="color: #ff0000;" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+            </div>
+        </div>
+        <div class="form-control">
+            <div><label for="middlename">Middle Name</label></div>
+            <div><input id="middlename" name="middleName" th:value="${studennt.middleName}" type="text"></div>
+        </div>
+        <div class="form-control">
+            <div><label for="lastName">Last Name</label></div>
+            <div><input id="lastName" name="lastName" th:value="${studennt.lastName}" type="text"></div>
+            <div>
+                <span style="color: #ff0000;" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+            </div>
+        </div>
+        <div class="form-control">
+            <div><label for="cgpa">cgpa</label></div>
+            <div><input id="cgpa" name="cgpa" th:value="${studennt.cgpa}" type="number"></div>
+        </div>
+        <div class="form-control">
+            <div><label for="enrollmentDate">Enrollment Date</label></div>
+            <div><input id="enrollmentDate" name="enrollmentDate" th:value="${studennt.enrollmentDate}" type="Date"></div>
+        </div>
+        <div class="form-control">
+            <div><label for="isInternational">IsInternational</label></div>
+            <div><input id="isInternational" name="isInternational" th:value="${studennt.isInternational}" type="text"></div>
+        </div>
+        <div>
+            <button id="btnSave" type="submit">Save Student</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
